@@ -1,0 +1,27 @@
+#given sample vector (in numeircal order) and given int in vector, preforms BS to find desired value
+def bin_search(array, low, high, val):
+    mid=(low+high)//2
+
+    if high >= low:
+
+        if array[mid]==val:   #found 
+            return mid
+
+        elif array[mid] < val:  #val smaller so element to right
+            return bin_search(array,mid+1,high,val)
+
+        elif array[mid] > val:  #val bigger so elemnt to left 
+            return bin_search(array,low,mid-1,val)
+
+    else:
+        return -1
+
+
+
+#example running
+array=[4,5,6,7,8]
+val=8
+
+item=bin_search(array, 0, len(array)-1, val)
+
+print("Element is at index: ", item)
